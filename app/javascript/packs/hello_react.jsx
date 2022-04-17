@@ -5,22 +5,19 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import PropTypes from 'prop-types'
-
-const Hello = props => (
-  <div>Hello {props.name}!</div>
-)
-
-Hello.defaultProps = {
-  name: 'David'
-}
-
-Hello.propTypes = {
-  name: PropTypes.string
-}
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import MainPage from './MainPage'
+import Dashboard from './Dashboard';
+import 'antd/dist/antd.css';
 
 document.addEventListener('DOMContentLoaded', () => {
   ReactDOM.render(
-    <Hello name="React" />,
+    <Router>
+      <Routes>
+        <Route exact path="/" element={<MainPage />} />
+        <Route path="/dashboard" element={<Dashboard />} />
+      </Routes>
+    </Router>,
     document.body.appendChild(document.createElement('div')),
   )
 })

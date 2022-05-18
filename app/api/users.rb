@@ -49,6 +49,46 @@ class Users < Api
       end
     end
 
+    desc "User update API"
+    put "/:user_id" do
+      user = User.find_by(id: params[:user_id])
+      if user.present? && user.update(name: params[:name], phone: params[:phone])
+        { status: true, data: {name: user.name, phone: user.phone}, message: "Login successful" }
+      else
+        error!({ status: false, message: "Something went wrong" }, 400)
+      end
+    end
+
+    desc "Upload Certificate"
+    post "/upload_certificate" do
+      puts params
+    end
+
+    get "/tour_guides" do
+      users = User.where(role: "guide", )
+      if users
+        data = []
+        users.map do |user|
+          if user.active === true || user.active === nil
+            data << user.tour_guide_data
+          end
+        end
+        { status: true, data: data}
+      else
+        error!({ status: false, message: "Something went wrong" }, 400)
+      end
+    end
+
+    desc "Approve Guide API"
+    put "/tour_guide/:user_id" do
+      user = User.find_by(id: params[:user_id])
+      if user.present? && user.update(active: params[:active])
+        { status: true, data: {name: user.name, phone: user.phone}, message: "Login successful" }
+      else
+        error!({ status: false, message: "Something went wrong" }, 400)
+      end
+    end
+
     get "/dashboard" do
       authenticate!
       { status: true, message: "Authentication passed in dashboard", user: current_user }

@@ -15,5 +15,16 @@ class User < ApplicationRecord
       role: role,
       token: token,
     }
-  end        
+  end  
+  
+  def tour_guide_data
+    {
+      id: id,
+      name: name,
+      email: email,
+      phone: phone,
+      certificate_url: certificate_url,
+      active: active,
+    }
+  end
 end

@@ -13,6 +13,7 @@ class User < ApplicationRecord
       email: email,
       phone: phone,
       role: role,
+      active: active,
       token: token,
     }
   end  

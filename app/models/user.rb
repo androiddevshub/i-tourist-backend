@@ -5,6 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   
   enum role: ["admin", "tourist", "guide"]
+  has_one :tour_guide
 
   def user_data(token)
     {

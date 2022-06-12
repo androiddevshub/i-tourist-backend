@@ -6,6 +6,8 @@ class Api < Grape::API
   content_type :json, "application/json"
 
   mount Users
+  mount TourGuides
+  mount Destinations
 
   before do
     header["Access-Control-Allow-Origin"] = "*"

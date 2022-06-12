@@ -65,7 +65,7 @@ class Users < Api
     end
 
     get "/tour_guides" do
-      users = User.where(role: "guide", )
+      users = User.where(role: "guide")
       if users
         data = []
         users.map do |user|
@@ -81,8 +81,10 @@ class Users < Api
 
     desc "Approve Guide API"
     put "/tour_guide/:user_id" do
+      byebug
       user = User.find_by(id: params[:user_id])
-      if user.present? && user.update(active: params[:active])
+      if user.present? && user.update(active: params[:active]) 
+        params[:active] == true ? TourGuide.create(user_id: user.id) : nil
         { status: true, data: {name: user.name, phone: user.phone}, message: "Login successful" }
       else
         error!({ status: false, message: "Something went wrong" }, 400)

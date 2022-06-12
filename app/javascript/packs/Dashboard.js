@@ -41,11 +41,11 @@ export default function Dashboard() {
           <TabPane tab="Tour Guides" key="1">
             <TourGuidesTable />
           </TabPane>
-          <TabPane tab="Destinations" key="2">
-            <DestinationsTable />
+          <TabPane tab="Tourist" key="2">
+            Tourist Data
           </TabPane>
-          <TabPane tab="Tab 3" key="3">
-            Content of Tab Pane 3
+          <TabPane tab="Destinations" key="3">
+            <DestinationsTable />
           </TabPane>
         </Tabs>
       </div>

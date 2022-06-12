@@ -2,7 +2,6 @@ import React, { useState, useEffect, useRef, createRef } from "react";
 import { Button, Form, Input, Modal, Space, Table } from "antd";
 import axios from "axios";
 import { EditOutlined } from "@mui/icons-material";
-import { FormInstance } from "antd/es/form";
 export default function DestinationsTable() {
   const [isModalVisible, setIsModalVisible] = useState(false);
   const [loading, setLoading] = useState(false);
@@ -10,7 +9,6 @@ export default function DestinationsTable() {
   const [form] = Form.useForm();
   const [initialValues, setInitialValues] = useState(null);
   const [formType, setFormType] = useState("");
-  const formRef = createRef();
 
   const addDestination = () => {
     setFormType("add");
@@ -87,13 +85,6 @@ export default function DestinationsTable() {
       price: record.price,
     });
     setIsModalVisible(true);
-
-    console.log("hihihi", formRef);
-
-    // formRef.current.setFieldsValue({
-    //   name: "Hello world!",
-    //   location: "male",
-    // });
   };
 
   const columns = [
@@ -148,7 +139,6 @@ export default function DestinationsTable() {
           labelCol={{ span: 8 }}
           wrapperCol={{ span: 16 }}
           initialValues={initialValues}
-          ref={formRef}
           onFinish={onFinish}
           onFinishFailed={onFinishFailed}
           autoComplete="off"

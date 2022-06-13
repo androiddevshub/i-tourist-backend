@@ -4,6 +4,7 @@ import Button from "@mui/material/Button";
 import LogoutIcon from "@mui/icons-material/Logout";
 import { Table, Tabs, Space } from "antd";
 import "./dashboard.css";
+import TourGuides from "./TourGuides";
 export default function Dashboard() {
   const navigate = useNavigate();
   const { TabPane } = Tabs;
@@ -37,7 +38,7 @@ export default function Dashboard() {
       <div className="main">
         <Tabs defaultActiveKey="1" onChange={onChange}>
           <TabPane tab="Tour Guides" key="1">
-            nothing
+            <TourGuides />
           </TabPane>
           <TabPane tab="Tourist" key="2">
             Tourist Data

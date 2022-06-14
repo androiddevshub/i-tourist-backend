@@ -5,6 +5,7 @@ import LogoutIcon from "@mui/icons-material/Logout";
 import { Table, Tabs, Space } from "antd";
 import "./dashboard.css";
 import TourGuides from "./TourGuides";
+import Destinations from "./Destinations";
 export default function Dashboard() {
   const navigate = useNavigate();
   const { TabPane } = Tabs;
@@ -44,7 +45,7 @@ export default function Dashboard() {
             Tourist Data
           </TabPane>
           <TabPane tab="Destinations" key="3">
-            nothing
+            <Destinations />
           </TabPane>
         </Tabs>
       </div>

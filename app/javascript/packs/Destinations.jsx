@@ -20,8 +20,7 @@ export default function Destinations() {
       });
   };
 
-
-   const columns = [
+  const columns = [
     {
       title: "Name",
       dataIndex: "name",

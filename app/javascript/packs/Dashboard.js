@@ -4,8 +4,8 @@ import Button from "@mui/material/Button";
 import LogoutIcon from "@mui/icons-material/Logout";
 import { Table, Tabs, Space } from "antd";
 import "./dashboard.css";
-import TourGuides from "./TourGuides";
-import Destinations from "./Destinations";
+import TourGuides from "./TourGuides.jsx";
+import Destinations from "./Destinations.jsx";
 export default function Dashboard() {
   const navigate = useNavigate();
   const { TabPane } = Tabs;

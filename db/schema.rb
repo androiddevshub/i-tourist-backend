@@ -10,11 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_06_15_033353) do
+ActiveRecord::Schema.define(version: 2022_06_15_082022) do
 
   create_table "destinations", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name"
-    t.string "description"
+    t.text "description"
     t.string "location"
     t.integer "reviews"
     t.integer "rating"
@@ -25,7 +25,7 @@ ActiveRecord::Schema.define(version: 2022_06_15_033353) do
 
   create_table "tour_guides", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.bigint "user_id"
-    t.string "description"
+    t.text "description"
     t.integer "reviews"
     t.integer "rating"
     t.string "languages"

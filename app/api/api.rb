@@ -8,6 +8,7 @@ class Api < Grape::API
   mount Users
   mount TourGuides
   mount Destinations
+  mount Trips
 
   before do
     header["Access-Control-Allow-Origin"] = "*"

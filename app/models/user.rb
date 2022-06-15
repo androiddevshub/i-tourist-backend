@@ -13,6 +13,7 @@ class User < ApplicationRecord
       name: name,
       email: email,
       phone: phone,
+      tour_guide_id: self.tour_guide == nil ? nil : self.tour_guide.id,
       role: role,
       active: active,
       token: token,

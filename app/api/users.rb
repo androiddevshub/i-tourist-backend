@@ -81,7 +81,6 @@ class Users < Api
 
     desc "Approve Guide API"
     put "/tour_guide/:user_id" do
-      byebug
       user = User.find_by(id: params[:user_id])
       if user.present? && user.update(active: params[:active]) 
         params[:active] == true ? TourGuide.create(user_id: user.id) : nil

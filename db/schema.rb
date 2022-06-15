@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_06_11_043119) do
+ActiveRecord::Schema.define(version: 2022_06_15_033353) do
 
   create_table "destinations", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name"
@@ -32,6 +32,15 @@ ActiveRecord::Schema.define(version: 2022_06_11_043119) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_tour_guides_on_user_id"
+  end
+
+  create_table "trips", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.bigint "destination_id"
+    t.bigint "tour_guide_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["destination_id"], name: "index_trips_on_destination_id"
+    t.index ["tour_guide_id"], name: "index_trips_on_tour_guide_id"
   end
 
   create_table "user_tokens", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|

@@ -17,6 +17,15 @@ class Destinations < Api
       end
     end
 
+    put "/:id" do
+      destination = Destination.find_by(id: params[:id])
+      if destination && destination.update(params)
+        { status: true, data: destination }
+      else
+         error!({ status: false, message: "Something went wrong" }, 400)
+      end
+    end
+
   end
 
 end

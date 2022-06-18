@@ -44,7 +44,7 @@ class TourGuides < Api
     end
 
 
-    post "/update_info/:id" do
+    put "/update_info/:id" do
       tour_guide = TourGuide.find_by(id: params[:id])
       if tour_guide && tour_guide.update(description: params[:description], languages: params[:languages])
         { status: true, data: tour_guide}

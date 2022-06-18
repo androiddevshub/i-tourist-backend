@@ -53,7 +53,16 @@ class Users < Api
     put "/:user_id" do
       user = User.find_by(id: params[:user_id])
       if user.present? && user.update(name: params[:name], phone: params[:phone])
-        { status: true, data: {name: user.name, phone: user.phone}, message: "Login successful" }
+        { 
+          status: true, 
+          data: {
+            name: user.name, 
+            phone: user.phone,
+            description: user.tour_guide == nil ? nil : user.tour_guide.languages,
+            languages: user.tour_guide == nil ? nil : user.tour_guide.description,
+          }, 
+          message: "User profile updated" 
+        }
       else
         error!({ status: false, message: "Something went wrong" }, 400)
       end

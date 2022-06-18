@@ -13,7 +13,7 @@ class Trips < Api
           languages: tour_guide.languages
         }
       end
-      { status: true, data: tour_guides}
+      { status: true, data: tour_guides }
      
     end
 

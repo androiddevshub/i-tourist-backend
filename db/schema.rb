@@ -10,7 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_06_15_082022) do
+ActiveRecord::Schema.define(version: 2022_06_18_075020) do
+
+  create_table "bookings", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "tour_guide_id"
+    t.bigint "destination_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["destination_id"], name: "index_bookings_on_destination_id"
+    t.index ["tour_guide_id"], name: "index_bookings_on_tour_guide_id"
+    t.index ["user_id"], name: "index_bookings_on_user_id"
+  end
 
   create_table "destinations", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name"
@@ -21,6 +32,16 @@ ActiveRecord::Schema.define(version: 2022_06_15_082022) do
     t.integer "price"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "reviews", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.bigint "tour_guide_id"
+    t.bigint "user_id"
+    t.string "description"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["tour_guide_id"], name: "index_reviews_on_tour_guide_id"
+    t.index ["user_id"], name: "index_reviews_on_user_id"
   end
 
   create_table "tour_guides", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|

@@ -6,6 +6,8 @@ class User < ApplicationRecord
   
   enum role: ["admin", "tourist", "guide"]
   has_one :tour_guide
+  has_many :reviews
+  has_many :bookings
 
   def user_data(token)
     {
@@ -13,7 +15,9 @@ class User < ApplicationRecord
       name: name,
       email: email,
       phone: phone,
-      tour_guide_id: self.tour_guide == nil ? nil : self.tour_guide.id,
+      tour_guide_id: self.tour_guide == nil ? 0 : self.tour_guide.id,
+      description: self.tour_guide == nil ? nil : self.tour_guide.languages,
+      languages: self.tour_guide == nil ? nil : self.tour_guide.description,
       role: role,
       active: active,
       token: token,

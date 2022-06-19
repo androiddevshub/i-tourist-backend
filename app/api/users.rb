@@ -58,8 +58,8 @@ class Users < Api
           data: {
             name: user.name, 
             phone: user.phone,
-            description: user.tour_guide == nil ? nil : user.tour_guide.languages,
-            languages: user.tour_guide == nil ? nil : user.tour_guide.description,
+            description: user.tour_guide == nil ? nil : user.tour_guide.description,
+            languages: user.tour_guide == nil ? nil : user.tour_guide.languages,
           }, 
           message: "User profile updated" 
         }
